@@ -64,16 +64,19 @@
         <slip2 value = "1.0"/>
     </gazebo>
   
-<!--Camera Plugin
-    <gazebo reference="camera">
+<!--Camera Plugin-->
+  <gazebo reference="camera">
     <material>Gazebo/Red</material>
     <sensor type="camera" name="camera1">
+      <pose>0.2 0 0.055 0 0 0</pose>
+      <visualize>true</visualize>
       <update_rate>30.0</update_rate>
+      <always_on>true</always_on>
       <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
+        <horizontal_fov>1.089</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>640</width>
+          <height>480</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -82,22 +85,14 @@
         </clip>
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
-        <cameraName>mybot/camera1</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
+        <camera_name>slambot/camera1</camera_name>
+        <frame_name>camera</frame_name>
+        <hack_baseline>0.07</hack_baseline>
       </plugin>
     </sensor>
-  </gazebo>
--->  
+  </gazebo>  
+
+
 
 <!-- hokuyo -->
   <gazebo reference="hokuyo">
@@ -131,7 +126,7 @@
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_ray_sensor.so">
         <ros>
-          <namespace>/slambot/laser</namespace>
+          <namespace>/</namespace>
           <remapping>~/out:=scan</remapping>
         </ros>
         <output_type>sensor_msgs/LaserScan</output_type>

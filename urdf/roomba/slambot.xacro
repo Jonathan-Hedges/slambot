@@ -139,7 +139,7 @@
     <joint_properties damping="1" friction="0"/>
   </joint>
 
-<!--Camera Link
+<!--Camera Link-->
 <link name="camera">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -153,7 +153,6 @@
       <geometry>
         <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
       </geometry>
-      <material name="green"/>
     </visual>
 
     <inertial>
@@ -171,7 +170,7 @@
     <parent link="chassis"/>
     <child link="camera"/>
   </joint>
--->
+
     <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.19 0 0.055" rpy="0 0 0"/>
