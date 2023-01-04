@@ -16,7 +16,7 @@ def generate_launch_description():
   robot_name_in_model = 'slambot'
   rviz_config_file_path = 'rviz/urdf_gazebo_config.rviz'
   urdf_file_path = 'urdf/roomba/slambot.xacro'
-  world_file_path = 'worlds/AssignmentWorld2.world'
+  world_file_path = 'worlds/turtlebot3_house.world'
      
   # Pose where we want to spawn the robot
   spawn_x_val = '0.0'
@@ -86,7 +86,7 @@ def generate_launch_description():
  
   declare_use_rviz_cmd = DeclareLaunchArgument(
     name='use_rviz',
-    default_value='True',
+    default_value='False',
     description='Whether to start RVIZ')
      
   declare_use_sim_time_cmd = DeclareLaunchArgument(

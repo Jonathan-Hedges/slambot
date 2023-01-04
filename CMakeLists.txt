@@ -23,22 +23,15 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY launch
+install(DIRECTORY launch urdf worlds rviz models config scripts slambot
   DESTINATION share/${PROJECT_NAME})
   
-install(DIRECTORY urdf
-  DESTINATION share/${PROJECT_NAME})
-  
-install(DIRECTORY worlds
-  DESTINATION share/${PROJECT_NAME})
-  
-install(DIRECTORY rviz
-  DESTINATION share/${PROJECT_NAME})
-  
-install(DIRECTORY models
-  DESTINATION share/${PROJECT_NAME})
-  
-install(DIRECTORY config
-  DESTINATION share/${PROJECT_NAME})
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+# Install Python executables
+install(PROGRAMS
+  slambot/avoidance.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()

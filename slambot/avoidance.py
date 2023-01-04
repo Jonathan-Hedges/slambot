@@ -61,8 +61,8 @@ class AvoidanceNode(Node):
         flag = True
         left_flag = True
         msg = Twist()
-        linear_x = 0
-        angular_z = 0
+        linear_x = 0.0
+        angular_z = 0.0
         linear_speed = 0.2
         angular_speed = 0.3
 
@@ -77,7 +77,7 @@ class AvoidanceNode(Node):
         if flag:
             state_description = 'objects: none'
             linear_x = linear_speed
-            angular_z = 0		
+            angular_z = 0.0		
 
         elif not flag:
             left_obj = 0
@@ -95,12 +95,12 @@ class AvoidanceNode(Node):
     
             if not left_flag:
                 state_description = 'objects: right'
-                linear_x = 0
+                linear_x = 0.0
                 angular_z = angular_speed
     
             elif left_flag:
                 state_description = 'objects: left'
-                linear_x = 0
+                linear_x = 0.0
                 angular_z = -angular_speed
     
             else:
